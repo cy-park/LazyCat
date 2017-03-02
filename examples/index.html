@@ -8,5 +8,15 @@
 	</style>
 </head>
 <body>
+	<img class="lazycat-target" data-lazycat-image="sample.png" />
+	<div class="lazycat-target" data-lazycat-image="sample.png" />
+	<script>
+		LazyCat.Image('.lazycat-target');
+		// LazyCat.Image('.lazycat-target', function(a,b){
+
+		// 	console.log(this, a, b);
+
+		// }, ['aaa','bbb']);
+	</script>
 </body>
 </html>

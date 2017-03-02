@@ -1,12 +1,12 @@
 {
   "name": "",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A lazy loader as smooth as a cat",
   "main": "src/LazyCat.js",
   "scripts": {
     "server": "http-server .",
     "watch": "watch 'npm run dist' src",
-    "dist": "mkdir -p dist && uglifyjs src/Scrawler.js -o dist/main.min.js --mangle",
+    "dist": "mkdir -p dist && uglifyjs src/LazyCat.js -o dist/LazyCat.min.js --mangle",
     "inst": "npm install uglify-js http-server --save-dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/cy-park/LazyCat/issues"
   },
-  "homepage": "https://github.com/cy-park/LazyCat#readme"
+  "homepage": "https://github.com/cy-park/LazyCat#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "uglify-js": "^2.8.5"
+  }
 }
