@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "lazycat",
   "version": "0.1.0",
   "description": "A lazy loader as smooth as a cat",
   "main": "src/LazyCat.js",
