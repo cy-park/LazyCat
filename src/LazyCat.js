@@ -21,10 +21,7 @@ LazyCat.Image = function(selector, callback, callbackArgs, callbackError, callba
 				if (elms[_i].tagName.toLowerCase() === 'img') {
 					elms[_i].setAttribute('src',img.src);
 				} else {
-					var style_text = 'background-image:url("'+img.src+'");'+
-									 elms[_i].getAttribute('style');
-
-					elms[_i].setAttribute('style',style_text);
+					elms[_i].style.backgroundImage = 'url("'+img.src+'")';
 				}
 
 				if (callback)
@@ -38,6 +35,43 @@ LazyCat.Image = function(selector, callback, callbackArgs, callbackError, callba
 		}(i));
 	}
 };
+
+LazyCat.Video = function(selector, callback, callbackArgs){
+	var el = document.querySelector(selector);
+	var url = el.getAttribute('data-lazycat-video');
+	el.src = url;
+	if (el.getAttribute('preload') === 'none' || el.getAttribute('preload') === 'metadata')
+		el.load();
+
+	var callback_run = false;
+	el.addEventListener('canplay', function(){
+		if (!callback_run) {
+			callback_run = true;
+			callback.apply(el, callbackArgs);
+		}
+	});
+};
+
+// LazyCat.FullVideo = function(selector, callback){
+
+// 	var el = document.querySelector(selector);
+// 	var url = el.getAttribute('data-lazycat-video');
+
+// 	var r = new XMLHttpRequest();
+// 	var v = document.createElement('video');
+
+// 	if (v.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
+// 		r.open('GET', url);
+// 	}
+
+// 	r.responseType = 'blob';
+// 	r.send();
+
+// 	r.onload = function() {
+// 		v.src = URL.createObjectURL(r.response);
+// 		callback.call(v);
+// 	};
+// };
 
 if (typeof define === 'function' && define.amd) define(LazyCat);
 else if (typeof module === 'object' && module.exports) module.exports = LazyCat;
