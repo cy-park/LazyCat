@@ -1,7 +1,12 @@
 CHANGELOG
 =========
 
-## 0.2.1 (Unreleased)
+## 0.2.2 (Unreleased)
+
+## 0.2.1 (2017-03-23, beta release)
+
+#### updates:
+ - updated to load video all the time
 
 ## 0.2.0 (2017-03-20, beta release)
 
