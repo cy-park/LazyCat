@@ -36,7 +36,7 @@ LazyCat.Image = function(selector, callback, callbackArgs, callbackError, callba
 	}
 };
 
-LazyCat.VideoX = function(selector, callback, callbackArgs){
+LazyCat.Video = function(selector, callback, callbackArgs){
 	var el = document.querySelector(selector);
 	var url = el.getAttribute('data-lazycat-video');
 	el.src = url;
@@ -49,7 +49,7 @@ LazyCat.VideoX = function(selector, callback, callbackArgs){
 			callback.apply(el, callbackArgs);
 		}
 	});
-	if (el.readyState > 3) {
+	if (el.readyState >= 3) {
 		if (!callback_run) {
 			callback_run = true;
 			callback.apply(el, callbackArgs);
@@ -57,7 +57,7 @@ LazyCat.VideoX = function(selector, callback, callbackArgs){
 	}
 };
 
-LazyCat.Video = function(selector, callback, callbackArgs){
+LazyCat.VideoBlob = function(selector, callback, callbackArgs){
 
 	var el = document.querySelector(selector);
 	var url = el.getAttribute('data-lazycat-video');

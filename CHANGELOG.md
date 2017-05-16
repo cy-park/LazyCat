@@ -1,7 +1,16 @@
 CHANGELOG
 =========
 
-## 0.2.3 (Unreleased)
+## 0.2.4 (Unreleased)
+
+## 0.2.3 (2017-05-16, beta release)
+
+#### updates:
+- updated LazyCat.VideoX() to LazyCat.Video()
+- updated LazyCat.Video() to LazyCat.VideoBlob()
+
+#### fixes:
+- fixed callback not firing in a certain status
 
 ## 0.2.2 (2017-05-15, beta release)
 
