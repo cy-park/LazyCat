@@ -1,7 +1,13 @@
 CHANGELOG
 =========
 
-## 0.2.4 (Unreleased)
+## 0.2.5 (Unreleased)
+
+## 0.2.4 (2017-05-16, beta release)
+
+#### updates:
+- updated to remove `data-lazycat-video` after loaded
+- updated to run callback on readyState is 2+
 
 ## 0.2.3 (2017-05-16, beta release)
 

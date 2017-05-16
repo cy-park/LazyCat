@@ -40,18 +40,18 @@ LazyCat.Video = function(selector, callback, callbackArgs){
 	var el = document.querySelector(selector);
 	var url = el.getAttribute('data-lazycat-video');
 	el.src = url;
-	el.load();
+	el.removeAttribute('data-lazycat-video');
+	setTimeout(function(){el.load();},0);
 
-	var callback_run = false;
 	el.addEventListener('canplay', function(){
-		if (!callback_run) {
-			callback_run = true;
+		if (!el.hasAttribute('data-lazycat-init')) {
+			el.setAttribute('data-lazycat-init','');
 			callback.apply(el, callbackArgs);
 		}
 	});
-	if (el.readyState >= 3) {
-		if (!callback_run) {
-			callback_run = true;
+	if (!el.hasAttribute('data-lazycat-init')) {
+		if (el.readyState >= 2) {
+			el.setAttribute('data-lazycat-init','');
 			callback.apply(el, callbackArgs);
 		}
 	}
