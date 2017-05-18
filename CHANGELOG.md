@@ -1,7 +1,15 @@
 CHANGELOG
 =========
 
-## 0.2.5 (Unreleased)
+## 0.2.6 (Unreleased)
+
+## 0.2.5 (2017-05-18, beta release)
+
+#### updates:
+- callback is now optional
+
+#### notes:
+- added video example
 
 ## 0.2.4 (2017-05-16, beta release)
 

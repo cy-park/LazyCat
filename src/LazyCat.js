@@ -46,13 +46,15 @@ LazyCat.Video = function(selector, callback, callbackArgs){
 	el.addEventListener('canplay', function(){
 		if (!el.hasAttribute('data-lazycat-init')) {
 			el.setAttribute('data-lazycat-init','');
-			callback.apply(el, callbackArgs);
+			if (callback)
+				callback.apply(el, callbackArgs);
 		}
 	});
 	if (!el.hasAttribute('data-lazycat-init')) {
 		if (el.readyState >= 2) {
 			el.setAttribute('data-lazycat-init','');
-			callback.apply(el, callbackArgs);
+			if (callback)
+				callback.apply(el, callbackArgs);
 		}
 	}
 };
@@ -73,7 +75,8 @@ LazyCat.VideoBlob = function(selector, callback, callbackArgs){
 
 	r.onload = function() {
 		el.src = URL.createObjectURL(r.response);
-		callback.apply(el, callbackArgs);
+		if (callback)
+			callback.apply(el, callbackArgs);
 	};
 };
 
