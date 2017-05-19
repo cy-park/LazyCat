@@ -1,4 +1,4 @@
-// Supports modern browsers & IE10+
+/*! Lazycat.js v0.3.0 | (c) 2017 Chan Young Park | MIT License */
 
 ;(function(){
 
@@ -6,7 +6,7 @@
 
 var LazyCat = {};
 
-LazyCat.Image = function(selector, callback, callbackArgs, callbackError, callbackArgsError){
+LazyCat.image = function(selector, callback, callbackError){
 
 	var elms = document.querySelectorAll(selector);
 
@@ -25,41 +25,52 @@ LazyCat.Image = function(selector, callback, callbackArgs, callbackError, callba
 				}
 
 				if (callback)
-					callback.apply(elms[_i], callbackArgs);
+					callback.call(elms[_i]);
 			};
 
 			img.onerror = function(){
 				if (callbackError)
-					callbackError.apply(elms[_i], callbackArgsError);
+					callbackError.call(elms[_i]);
 			};
 		}(i));
 	}
 };
 
-LazyCat.Video = function(selector, callback, callbackArgs){
+LazyCat.video = function(selector, callback, timeout){
 	var el = document.querySelector(selector);
 	var url = el.getAttribute('data-lazycat-video');
 	el.src = url;
 	el.removeAttribute('data-lazycat-video');
 	setTimeout(function(){el.load();},0);
 
+	var runCallback = function(){
+		el.setAttribute('data-lazycat-loaded','');
+		if (callback)
+			callback.call(el);
+	};
+
 	el.addEventListener('canplay', function(){
-		if (!el.hasAttribute('data-lazycat-init')) {
-			el.setAttribute('data-lazycat-init','');
-			if (callback)
-				callback.apply(el, callbackArgs);
+		// `canplay` event is fired when radyState is 3 (HAVE_FUTURE_DATA) or bigger.
+		if (!el.hasAttribute('data-lazycat-loaded')) {
+			runCallback()
 		}
 	});
-	if (!el.hasAttribute('data-lazycat-init')) {
-		if (el.readyState >= 2) {
-			el.setAttribute('data-lazycat-init','');
-			if (callback)
-				callback.apply(el, callbackArgs);
+
+	if (!el.hasAttribute('data-lazycat-loaded')) {
+		if (el.readyState > 2) {
+			runCallback();
+		} else {
+			if (timeout) {
+				setTimeout(function(){
+					if (!el.hasAttribute('data-lazycat-loaded'))
+						runCallback();
+				}, timeout);
+			}
 		}
 	}
 };
 
-LazyCat.VideoBlob = function(selector, callback, callbackArgs){
+LazyCat.videoBlob = function(selector, callback, callbackError){
 
 	var el = document.querySelector(selector);
 	var url = el.getAttribute('data-lazycat-video');
@@ -76,7 +87,12 @@ LazyCat.VideoBlob = function(selector, callback, callbackArgs){
 	r.onload = function() {
 		el.src = URL.createObjectURL(r.response);
 		if (callback)
-			callback.apply(el, callbackArgs);
+			callback.call(el);
+	};
+
+	r.onerror = function(){
+		if (callbackError)
+			callbackError.call(el);
 	};
 };
 

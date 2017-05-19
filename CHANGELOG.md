@@ -1,7 +1,19 @@
 CHANGELOG
 =========
 
-## 0.2.6 (Unreleased)
+## 0.3.1 (Unreleased)
+
+## 0.3.0 (2017-05-19, beta release)
+
+#### features:
+- LazyCat.video() accepts `timeout` (milliseconds) as the third argument.
+- removed `callbackArgs`
+
+#### updates:
+- change static method names to begin with lower cases (i.e. LazyCat.video())
+
+#### notes:
+- added basic documentation
 
 ## 0.2.5 (2017-05-18, beta release)
 
