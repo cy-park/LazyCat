@@ -1,7 +1,12 @@
 CHANGELOG
 =========
 
-## 0.3.1 (Unreleased)
+## 0.3.2 (Unreleased)
+
+## 0.3.1 (2017-05-27, beta release)
+
+#### updates:
+- removed `setTimeout 0` on `el.load()`.
 
 ## 0.3.0 (2017-05-19, beta release)
 

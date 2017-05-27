@@ -1,4 +1,4 @@
-# LazyCat v0.3.0
+# LazyCat v0.3.1
 
 ### A simple lazy loader for images and videos
 

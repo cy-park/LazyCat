@@ -1,4 +1,4 @@
-/*! Lazycat.js v0.3.0 | (c) 2017 Chan Young Park | MIT License */
+/*! Lazycat.js v0.3.1 | (c) 2017 Chan Young Park | MIT License */
 
 ;(function(){
 
@@ -41,7 +41,7 @@ LazyCat.video = function(selector, callback, timeout){
 	var url = el.getAttribute('data-lazycat-video');
 	el.src = url;
 	el.removeAttribute('data-lazycat-video');
-	setTimeout(function(){el.load();},0);
+	el.load();
 
 	var runCallback = function(){
 		el.setAttribute('data-lazycat-loaded','');
