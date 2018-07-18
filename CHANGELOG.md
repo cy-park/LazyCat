@@ -1,7 +1,12 @@
 CHANGELOG
 =========
 
-## 0.3.2 (Unreleased)
+## 0.4.1 (Unreleased)
+
+## 0.4.0 (2018-07-18, beta release)
+
+#### features:
+ - LazyCat now accepts DOM object element as a selector.
 
 ## 0.3.1 (2017-05-27, beta release)
 
