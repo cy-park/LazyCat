@@ -1,7 +1,12 @@
 CHANGELOG
 =========
 
-## 0.4.1 (Unreleased)
+## 0.4.2 (Unreleased)
+
+## 0.4.1 (2019-03-05, beta release)
+
+#### updates:
+ - Simplified video loading process. Not using `data-lazycat-video`, instead use `src` atribute with `preload="none"`.
 
 ## 0.4.0 (2018-07-18, beta release)
 

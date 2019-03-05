@@ -1,6 +1,6 @@
 {
   "name": "lazycat",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A lazy loader as smooth as a cat",
   "main": "src/LazyCat.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "uglify-js": "^2.8.29"
   },
   "metadata": {
-    "credit": "/*! Lazycat.js v0.4.0 | (c) 2017-2018 Chan Young Park | MIT License */",
+    "credit": "/*! Lazycat.js v0.4.0 | (c) 2017-2019 Chan Young Park | MIT License */",
     "class_name": "Lazycat",
     "year_launched": "2017"
   }

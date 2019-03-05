@@ -1,4 +1,4 @@
-# LazyCat v0.4.0
+# LazyCat v0.4.1
 
 ### A simple lazy loader for images and videos
 
@@ -87,7 +87,7 @@ After downloading LazyCat.js, use below code to quick-start:
 <!DOCTYPE html>
 <html>
   <body>
-    <video class="lazycat-target" data-lazycat-video="sample.mp4" autoplay loop></video>
+    <video class="lazycat-target" src="sample.mp4" preload="none" autoplay loop></video>
     <script src="LazyCat.js"></script>
     <script>
       LazyCat.video('.lazycat-target', function(){
@@ -153,7 +153,7 @@ Load video. No error callback is available, but loading time out is applicable.
 
 **Arguments:**
 
-- `selector` *{string}* Target DOM element for lazy load. The DOM element must have an attribute `data-lazycat-video="[source URL]"`.
+- `selector` *{string}* Target DOM element for lazy load. The DOM element must have an attribute `src="[source URL]"` and `preload="none"`.
 
 - `callback` *{function}* (optional) Callback function calling after loading is successfully completed. Successful loading here means the video’s `readyState` becoming `3` or bigger.
 

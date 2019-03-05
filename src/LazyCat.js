@@ -1,4 +1,4 @@
-/*! Lazycat.js v0.4.0 | (c) 2017-2018 Chan Young Park | MIT License */
+/*! Lazycat.js v0.4.1 | (c) 2017-2019 Chan Young Park | MIT License */
 
 ;(function(){
 
@@ -8,7 +8,7 @@ var LazyCat = {};
 
 LazyCat.image = function(selector, callback, callbackError){
 
-	var elms = 
+	var elms =
 		typeof selector === 'string' ? // string is provided for `selector`
 			document.querySelectorAll(selector) :
 		selector.length === undefined ? // assume one single DOM element is provided
@@ -42,9 +42,6 @@ LazyCat.image = function(selector, callback, callbackError){
 
 LazyCat.video = function(selector, callback, timeout){
 	var el = typeof selector === 'string' ? document.querySelector(selector) : selector;
-	var url = el.getAttribute('data-lazycat-video');
-	el.src = url;
-	el.removeAttribute('data-lazycat-video');
 	el.load();
 
 	var runCallback = function(){
